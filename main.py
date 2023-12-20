@@ -1,8 +1,16 @@
 # This Python script generate random composition of a player.
-
+import configparser
 import csv
 import random
-from itertools import combinations
+
+from pyfiglet import Figlet
+
+import service
+import climage
+
+# Import del file config
+config = configparser.ConfigParser()
+config.read("config.ini")
 
 ###################
 ### CLASS CARTE ###
@@ -21,7 +29,7 @@ class Carta:
 
     group: str
     name: str
-    value: int
+    value: float
     priority: int
     constraint: str
     desc: str
@@ -124,8 +132,16 @@ def get_comb(comb_random, comb_path, comb_perc):
 ############
 
 if __name__ == '__main__':
+    image = climage.convert('image.png',
+                            is_unicode=True,
+                            is_truecolor=True,
+                            is_256color=False,
+                            width=60,
+                            palette="gruvboxdark")
+    print(image)
+
     # Chiamata a read_carte_csv
-    card_list = read_carte_csv('carte.csv')
+    card_list = read_carte_csv(config["Paths"]["CardsCSV"])
 
     # Scelta numero giocatori
     while True:
@@ -138,9 +154,9 @@ if __name__ == '__main__':
             else:
                 break
         else:
-            print("----------------------------------------")
-            print("--- Inserisci un fottutissimo numero ---")
-            print("----------------------------------------")
+            f = Figlet(font='slant', width=80)
+            print(f.renderText('Inserisci un fottutissimo numero'))
+            print("Grazie u.u")
 
     giocatori = int(giocatori)
 
@@ -161,3 +177,22 @@ if __name__ == '__main__':
     # Import CSV comb and put in class
     comb = read_comb_csv(comb_name, giocatori)
 
+    # Genera valori random per categoria
+    guard_random = service.random_and_check(comb.guard, "guardcard")
+    random = {"guard_random": guard_random,
+              "seer_random": service.random_and_check(comb.seer, "seercard"),
+              "seerbis_random": service.random_and_check(comb.seerbis, "seerbiscard"),
+              "switcher_random": service.random_and_check(comb.switcher, "switchercard"),
+              "third_random": service.random_and_check(comb.third, "thirdcard"),
+              "vsupport_random": service.random_and_check(comb.vsupport, "vsupportcard"),
+              "wolf_random": service.random_and_check(comb.wolf, "wolfcard"),
+              "wsupport_random": service.random_and_check(comb.wsupport, "wsupportcard")}
+
+    if bool(config["DEFAULT"]["UploadNewCards"]) == True:
+        service.update_card(card_list)
+
+    print("La tua combinazione di carte è:\n")
+
+    for r in random:
+        for rcard in random[r]:
+            print(card_list)
