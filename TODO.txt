@@ -1,2 +1,3 @@
 Fare una variabile nel config che tenga traccia del valore massimo di giocatori che si possono avere in game,
 fare questo trovando il valore max fra le carte
+salva un mazzo se mi piace
