@@ -44,7 +44,7 @@ vsupport,maresciallo,1,,
 switcher,figliadeilupi,-3,,guard
 switcher,visitatore,-2,,
 switcher,mitomane,1,,seer.veggente|seer.cartomante
-third,mietitore,-4,,
+third,mietitore,-4,,!nonnamannara:!mara:!lara
 third,darius,-6,,
 third,cricetomannaro,1,,seer.veggente|seer.cartomante:guard
 third,illuminato,-3,,
