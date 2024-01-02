@@ -1,3 +1,4 @@
 Fare una variabile nel config che tenga traccia del valore massimo di giocatori che si possono avere in game,
 fare questo trovando il valore max fra le carte
 salva un mazzo se mi piace
+ti devo dare un vettore che in base al numero di giocatori ti dice quanti al massimo possono essere visti cattivi
