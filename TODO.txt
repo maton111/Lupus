@@ -3,6 +3,9 @@ fare questo trovando il valore max fra le carte
 salva un mazzo se mi piace
 ti devo dare un vettore che in base al numero di giocatori ti dice quanti al massimo possono essere visti cattivi
 
-ti do un vettore in cui c'è l'ordine di chiamata dei personaggi durante la notte, in output devono uscire in questo ordine (poi vediamo come fare quelli che agiscono una notte sola e simili).
+ti do un vettore in cui c'è l'ordine di chiamata dei personaggi durante la notte, in output devono uscire in questo ordine (poi vediamo come fare quelli che agiscono 
+una notte sola e simili).
+
+ti do un vettore in cui ogni carta ha un valore da 1 a 10 in base alla difficoltà di gioco. In input devi dare anche la difficoltà della partita.
 
 v grafica v
